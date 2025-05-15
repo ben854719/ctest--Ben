@@ -22,5 +22,12 @@ test: main.c.o ctest.h mytests.c.o
 test++: main.cpp.o ctest.h mytests.cpp.o
 	$(CXX) $(LDFLAGS) main.cpp.o mytests.cpp.o -o test++
 
+debug: CFLAGS += -g -Og
+debug: CXXFLAGS += -g -Og
+debug: remake
+
+TEST_EXEC=test
+TESTPP_EXEC=test++
+
 clean:
-	rm -f test test++ *.o
+	rm -f test test++ *.PHONY
